@@ -18,10 +18,10 @@ $(document).ready(()=>{
     console.log(exercises[i].name);
   };
 
-
-  document.getElementById("exerciseFormSelect").oninput = function(){
-    var exerciseSelect = document.getElementById("exerciseFormSelect").value;
-    $("#exerciseListSun").append('<li>' + exerciseSelect + '</li>');
-  }
+  // 
+  // document.getElementById("exerciseFormSelect").oninput = function(){
+  //   var exerciseSelect = document.getElementById("exerciseFormSelect").value;
+  //   $("#exerciseListSun").append('<li>' + exerciseSelect + '</li>');
+  // }
 
 });
