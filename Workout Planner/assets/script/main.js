@@ -13,6 +13,11 @@ $(document).ready(()=>{
         equipment: ["Barbell", "Rack"]
       }
   ];
+  for(var i = 0; i < exercises.length; i++){
+    $("#exerciseFormSelect").replace("<option>" + exercises[i].name + "</option>");
+    console.log(exercises[i].name);
+  };
+
 
   document.getElementById("exerciseFormSelect").oninput = function(){
     var exerciseSelect = document.getElementById("exerciseFormSelect").value;
