@@ -12,7 +12,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- bootstrap js -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- my script -->
   <script src="assets\script\main.js"></script>
+  <!-- select2 style -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+  <!-- select2 script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
   <title>BBPlan</title>
 </head>
   <body>
@@ -69,18 +74,20 @@
             </ul>
           </p>
           <div class = "container">
-            <p>add exercises here</p>
-            <div class="form-group">
+            <div class="form-group md-form">
               <label for="exerciseFormSelect">Choose Exercise</label>
               <select class="form-control" id="exerciseFormSelect">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <!-- options are auto-added here -->
               </select>
+              <label for = "sets" id = "setsLabel">Sets:</label>
+              <textarea class = "form-control" id = "setsText" rows = "1"></textarea>
+              <label for = "reps" id = "repsLabel">Reps:</label>
+              <textarea class = "md-textarea form-control" type = "text" id = "repsText" rows = "1"></textarea>
+              <input type="checkbox" class="form-check-input" id="rmCheck">
+              <label class="form-check-label" for="rmCheck" id = "rmCheckLabel">Use 1RM</label>
+              <input type="button" class="btn btn-primary" id = "addExButton" value = "Add Exercise"></input>
             </div>
-          </div>
+        </div>
         </div>
 
         <div id="Monday" class="tab-pane fade" role="tabpanel">

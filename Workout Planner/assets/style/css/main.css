@@ -18,4 +18,27 @@
   width: 80%;
   background-color: purple; }
 
+#exerciseListSun {
+  list-style-type: none; }
+
+#setsText, #repsText {
+  display: inline;
+  width: 30px;
+  height: 30px;
+  background-color: blue;
+  resize: none;
+  overflow: hidden; }
+
+#rmCheck {
+  position: relative;
+  top: -8px; }
+
+#setsLabel, #repsLabel, #rmCheckLabel {
+  background-color: red;
+  position: relative;
+  top: -8px; }
+
+.form-group {
+  background-color: orange; }
+
 /*# sourceMappingURL=main.css.map */

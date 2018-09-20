@@ -6,6 +6,7 @@ $background: red;
 .col-sm-8 h3{
   text-align: center;
 }
+
 #day-selector{
 //  background-color: red;
   max-width: 50px;
@@ -19,8 +20,30 @@ $background: red;
 }
 
 #day-content{
-
 width:80%;
 background-color: purple;
+}
+#exerciseListSun{
+list-style-type: none
 
+}
+#setsText, #repsText, {
+ display: inline;
+  width:30px;
+  height: 30px;
+  background-color: blue;
+  resize:none;
+  overflow:hidden;
+}
+#rmCheck{
+  position:relative;
+  top: -8px;
+}
+#setsLabel, #repsLabel, #rmCheckLabel{
+  background-color: red;
+  position: relative;
+  top:-8px;
+}
+.form-group{
+  background-color: orange;
 }
