@@ -5,21 +5,31 @@
   text-align: center; }
 
 #day-selector {
-  max-width: 50px; }
+  background-color: black;
+  max-width: 50px;
+  padding: 0px; }
+
+#day-selector .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+  background-color: gray; }
 
 #day-selector a {
   border: 1px solid blue;
-  padding-right: 30px;
-  margin-left: -13px;
+  float: left;
   text-align: center;
-  height: 60px; }
+  height: 60px;
+  width: 100%; }
 
 #day-content {
-  width: 80%;
-  background-color: purple; }
+  background-color: purple;
+  margin: auto;
+  height: 420px;
+  padding: 0; }
 
-#exerciseListSun {
-  list-style-type: none; }
+.exercise-list {
+  padding-left: 0px;
+  list-style-type: none;
+  column-count: 2;
+  column-fill: auto; }
 
 #setsText, #repsText {
   display: inline;
@@ -39,6 +49,12 @@
   top: -8px; }
 
 .form-group {
-  background-color: green; }
+  background-color: green;
+  padding: 5px; }
+
+.tab-content {
+  background-color: gray;
+  height: 280px;
+  overflow: hidden; }
 
 /*# sourceMappingURL=main.css.map */

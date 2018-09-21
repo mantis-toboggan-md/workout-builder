@@ -13,17 +13,26 @@ $(document).ready(()=>{
         equipment: ["Barbell", "Rack"]
       }
   ];
+
+  //generate list of exercise names in dropdown
   for(var i = 0; i < exercises.length; i++){
     $("#exerciseFormSelect").append("<option>" + exercises[i].name + "</option>");
     console.log(exercises[i].name);
   };
-$("#exerciseFormSelect").select2();
+  //make drowndown searchable
+  $("#exerciseFormSelect").select2();
 
+
+  //when "add exercise is pressed"
   document.getElementById("addExButton").onclick = function(){
     var exerciseSelect = document.getElementById("exerciseFormSelect").value;
     var sets = document.getElementById("setsText").value;
     var reps = document.getElementById("repsText").value;
-    $("#exerciseListSun").append(  '<li>' +
+    //check which day is active
+    var currDay =   $(".tab-pane.active").attr("id");
+    console.log(currDay);
+    //add exercise, sets, reps to that day's list
+    $(".tab-pane.active .exercise-list").append(  '<li>' +
       '<input type="button" class="btn btn-danger" value = "x"></input>' +
       exerciseSelect +
       " " +
@@ -32,13 +41,16 @@ $("#exerciseFormSelect").select2();
       reps +
       '</li>'
     );
-    console.log("button pressed")
-  };
-  $(".btn btn-danger").onclick = function(){
-    $(this).parent().remove();
-    console.log("button pressed");
+    console.log("add button pressed")
+
+    // when delete button pressed
+    $(".btn-danger").on("click", function() {
+      //remove exercise
+      $(this).parent().remove();
+      console.log("delete button pressed")
+      });
   };
 
-  
+
 
 });

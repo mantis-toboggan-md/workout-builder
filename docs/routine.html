@@ -66,55 +66,93 @@
       <div class="tab-content">
 
         <div id="Sunday" class="tab-pane fade in active" role="tabpanel">
+          <div class = "container">
           <h3>Sunday</h3>
           <p>
-            <ul id = "exerciseListSun">
-              <li>exercise 1</li>
-              <li>exercise 2</li>
+            <ul class = "exercise-list" id = "exerciseListSun">
+              <!-- exercises and reps for the day are auto-added here -->
             </ul>
           </p>
-          <div class = "container">
-            <div class="form-group md-form">
-              <label for="exerciseFormSelect">Choose Exercise</label>
-              <select class="form-control" id="exerciseFormSelect">
-                <!-- options are auto-added here -->
-              </select>
-              <label for = "sets" id = "setsLabel">Sets:</label>
-              <textarea class = "form-control" id = "setsText" rows = "1"></textarea>
-              <label for = "reps" id = "repsLabel">Reps:</label>
-              <textarea class = "md-textarea form-control" type = "text" id = "repsText" rows = "1"></textarea>
-              <input type="checkbox" class="form-check-input" id="rmCheck">
-              <label class="form-check-label" for="rmCheck" id = "rmCheckLabel">Use 1RM</label>
-              <input type="button" class="btn btn-primary" id = "addExButton" value = "Add Exercise"></input>
-            </div>
         </div>
         </div>
 
         <div id="Monday" class="tab-pane fade" role="tabpanel">
+          <div class = "container">
           <h3>Monday</h3>
-          <p>Some content in menu 1.</p>
+          <p>
+            <ul class = "exercise-list" id = "exerciseListMon">
+              <!-- exercises and reps for the day are auto-added here -->
+            </ul>
+          </p>
+        </div>
         </div>
         <div id="Tuesday" class="tab-pane fade" role="tabpanel">
+          <div class = "container">
           <h3>Tuesday</h3>
-          <p>Some content in menu 2.</p>
+          <p>
+            <ul class = "exercise-list" id = "exerciseListTue">
+              <!-- exercises and reps for the day are auto-added here -->
+            </ul>
+          </p>
+        </div>
         </div>
         <div id="Wednesday" class="tab-pane fade" role="tabpanel">
+          <div class = "container">
           <h3>Wednesday</h3>
-          <p>Some content in menu 2.</p>
+          <p>
+            <ul class = "exercise-list" id = "exerciseListWed">
+            <!-- exercises and reps for the day are auto-added here -->
+            </ul>
+        </p>
+        </div>
         </div>
         <div id="Thursday" class="tab-pane fade" role="tabpanel">
+          <div class = "container">
           <h3>Thursday</h3>
-          <p>Some content in menu 2.</p>
+          <p>
+            <ul class = "exercise-list" id = "exerciseListThu">
+          <!-- exercises and reps for the day are auto-added here -->
+          </ul>
+        </p>
+        </div>
         </div>
         <div id="Friday" class="tab-pane fade" role="tabpanel">
+          <div class = "container">
           <h3>Friday</h3>
-          <p>Some content in menu 2.</p>
+          <p>
+            <ul class = "exercise-list" id = "exerciseListFri">
+            <!-- exercises and reps for the day are auto-added here -->
+            </ul>
+          </p>
+        </div>
         </div>
         <div id="Saturday" class="tab-pane fade" role="tabpanel">
+          <div class = "container">
           <h3>Saturday</h3>
-          <p>Some content in menu 2.</p>
+          <p>
+            <ul class = "exercise-list" id = "exerciseListSat">
+            <!-- exercises and reps for the day are auto-added here -->
+            </ul>
+          </p>
+        </div>
         </div>
       </div>
+
+
+      <div class="form-group md-form">
+        <label for="exerciseFormSelect">Choose Exercise</label>
+        <select class="form-control" id="exerciseFormSelect">
+          <!-- options are auto-added here -->
+        </select>
+        <label for = "sets" id = "setsLabel">Sets:</label>
+        <textarea class = "form-control" id = "setsText" rows = "1">0</textarea>
+        <label for = "reps" id = "repsLabel">Reps:</label>
+        <textarea class = "md-textarea form-control" type = "text" id = "repsText" rows = "1">0</textarea>
+        <input type="checkbox" class="form-check-input" id="rmCheck">
+        <label class="form-check-label" for="rmCheck" id = "rmCheckLabel">Use 1RM</label>
+        <input type="button" class="btn btn-primary" id = "addExButton" value = "Add Exercise"></input>
+      </div>
+
     </div>
   </div>
 </div>

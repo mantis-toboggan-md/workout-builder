@@ -1,5 +1,6 @@
 
-$background: red;
+$colorActiveTab: gray;
+$colorInactiveTab: black;
 .col-sm-8{
   border: 1px solid gray;
 }
@@ -7,26 +8,42 @@ $background: red;
   text-align: center;
 }
 
+
 #day-selector{
-//  background-color: red;
+  background-color: $colorInactiveTab;
   max-width: 50px;
+  padding: 0px;
 }
+
+#day-selector .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+  background-color: $colorActiveTab
+}
+
 #day-selector a{
   border:1px solid blue;
-  padding-right: 30px;
-  margin-left: -13px;
+  //padding-right: 30px;
+  float:left;
   text-align: center;
   height: 60px;
+  width: 100%;
 }
 
 #day-content{
-width:80%;
+//width:80%;
 background-color: purple;
+//float: right;
+margin: auto;
+height: 420px;
+padding: 0;
 }
-#exerciseListSun{
-list-style-type: none
 
+.exercise-list{
+  padding-left:0px;
+  list-style-type: none;
+  column-count:2;
+  column-fill:auto;
 }
+
 #setsText, #repsText, {
  display: inline;
   width:30px;
@@ -46,4 +63,12 @@ list-style-type: none
 }
 .form-group{
   background-color: green;
+  padding: 5px;
+
+}
+
+.tab-content{
+  background-color: $colorActiveTab;
+  height: 280px;
+  overflow:hidden;
 }
