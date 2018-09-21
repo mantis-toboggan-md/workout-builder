@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets\style\css\main.css">
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <!--bootstrap css  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- bootstrap js -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- my script -->
+  <script src="assets\script\main.js"></script>
+  <!-- select2(allows selection search) style -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+  <!-- select2 script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+  <title>BBPlan</title>
+</head>
+  <body>
+    <div class = "container"><h1 >test title:routine</h1></div>
+
+    <div class="fixed-bottom">weight: bf: dead: squat: bench:</div>
+
+    <nav class="navbar navbar-default navbar-expand-xl">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      <!-- <a class="navbar-brand" href="#">WebSiteName</a> -->
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Overview</a></li>
+          <li class="active"><a href="routine.html">Routine</a></li>
+          <li><a href="#">Nutrition</a></li>
+          <li><a href="#">Progress</a></li>
+        </ul>
+      <!-- <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul> -->
+      </div>
+      </div>
+    </nav>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-xs-2" id = "day-selector">
+      <ul class="nav nav-stacked nav-pills" role="tablist" aria-orientation="vertical">
+        <li class="active"><a data-toggle="pill" href="#Sunday">U</a></li>
+        <li class="nav-item"><a data-toggle="pill" href="#Monday" role="tab">M</a></li>
+        <li class="nav-item"><a data-toggle="pill" href="#Tuesday" role="tab">T</a></li>
+        <li class="nav-item"><a data-toggle="pill" href="#Wednesday" role="tab">W</a></li>
+        <li class="nav-item"><a data-toggle="pill" href="#Thursday" role="tab">R</a></li>
+        <li class="nav-item"><a data-toggle="pill" href="#Friday" role="tab">F</a></li>
+        <li class="nav-item"><a data-toggle="pill" href="#Saturday" role="tab">S</a></li>
+      </ul>
+    </div>
+    <div class = "col-xs-10" id = "day-content">
+      <div class="tab-content">
+
+        <div id="Sunday" class="tab-pane fade in active" role="tabpanel">
+          <h3>Sunday</h3>
+          <p>
+            <ul id = "exerciseListSun">
+              <li>exercise 1</li>
+              <li>exercise 2</li>
+            </ul>
+          </p>
+          <div class = "container">
+            <div class="form-group md-form">
+              <label for="exerciseFormSelect">Choose Exercise</label>
+              <select class="form-control" id="exerciseFormSelect">
+                <!-- options are auto-added here -->
+              </select>
+              <label for = "sets" id = "setsLabel">Sets:</label>
+              <textarea class = "form-control" id = "setsText" rows = "1"></textarea>
+              <label for = "reps" id = "repsLabel">Reps:</label>
+              <textarea class = "md-textarea form-control" type = "text" id = "repsText" rows = "1"></textarea>
+              <input type="checkbox" class="form-check-input" id="rmCheck">
+              <label class="form-check-label" for="rmCheck" id = "rmCheckLabel">Use 1RM</label>
+              <input type="button" class="btn btn-primary" id = "addExButton" value = "Add Exercise"></input>
+            </div>
+        </div>
+        </div>
+
+        <div id="Monday" class="tab-pane fade" role="tabpanel">
+          <h3>Monday</h3>
+          <p>Some content in menu 1.</p>
+        </div>
+        <div id="Tuesday" class="tab-pane fade" role="tabpanel">
+          <h3>Tuesday</h3>
+          <p>Some content in menu 2.</p>
+        </div>
+        <div id="Wednesday" class="tab-pane fade" role="tabpanel">
+          <h3>Wednesday</h3>
+          <p>Some content in menu 2.</p>
+        </div>
+        <div id="Thursday" class="tab-pane fade" role="tabpanel">
+          <h3>Thursday</h3>
+          <p>Some content in menu 2.</p>
+        </div>
+        <div id="Friday" class="tab-pane fade" role="tabpanel">
+          <h3>Friday</h3>
+          <p>Some content in menu 2.</p>
+        </div>
+        <div id="Saturday" class="tab-pane fade" role="tabpanel">
+          <h3>Saturday</h3>
+          <p>Some content in menu 2.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </body>
+</html>
