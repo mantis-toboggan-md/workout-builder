@@ -2,8 +2,8 @@ $(document).ready(()=>{
   var exercises = [
       {
         name: "Deadlift",
-        primary: ["Hamstrings", "Glutes"],
-        secondary: ["Quads", "Hip Flexors"],
+        primary: ["Hamstrings", "Gluteus Maximus"],
+        secondary: ["Quadriceps"],
         equipment: ["Barbell"]
       },
       {
@@ -106,10 +106,10 @@ $(document).ready(()=>{
         secondary: ["Anterior Deltiod", "Triceps"],
         equipment:["Barbell", "Incline Bench"]
       },{
-        name: "",
-        primary: [""],
-        secondary: [""],
-        equipment:[""]
+        name: "Incline Shoulder Raise",
+        primary: ["Serratus Anterior"],
+        secondary: ["Pectoralis Major Clavicular"],
+        equipment:["Barbell", "Incline Bench"]
       },{
         name: "",
         primary: [""],
@@ -123,7 +123,11 @@ $(document).ready(()=>{
       },
 
   ];
-  var muscles =["Adductors", "Biceps", "Brachialis", "Brachioradialis", "Anterior Deltiod", "Lateral Deltoid", "Posterior Deltoid", "Erector Spinae", "Gastronemius", "Gluteus Maximus", "Gluteus Medius", "Gluteus Minimus", "Gracilis", "Hamstrings", "Iliopsoas", "Infraspinatus", "Latissimus Dorsi", "Levator Scapulae", "Obliques", "Pectineous", "Pectoralis Major Clavicular", "Pectoralis Major Sternal", "Teres Major", "Teres Minor", "Tibialis Anterior", "Transverse Abdominus", "Lower Trapezius", "Middle Trapezius", "Upper Trapezius", "Triceps", "Wrist Extensors", "Wrist Flexors", "Popliteus", "Quadriceps", "Rectus Abdominus", "Rhomboids", "Sartorius", "Serratus Anterior", "Soleus", "Splenius", "Sternocleidomastoid", "Subscapularis", "Supraspinatus", "Tensor Fasciae Latae"];
+  var muscles =
+    ["Adductors", "Biceps", "Brachialis", "Brachioradialis", "Anterior Deltiod", "Lateral Deltoid", "Posterior Deltoid", "Erector Spinae", "Gastronemius", "Gluteus Maximus", "Gluteus Medius", "Gluteus Minimus", "Gracilis", "Hamstrings", "Iliopsoas", "Infraspinatus", "Latissimus Dorsi", "Levator Scapulae", "Obliques", "Pectineous", "Pectoralis Major Clavicular", "Pectoralis Major Sternal", "Teres Major", "Teres Minor", "Tibialis Anterior", "Transverse Abdominus", "Lower Trapezius", "Middle Trapezius", "Upper Trapezius", "Triceps", "Wrist Extensors", "Wrist Flexors", "Popliteus", "Quadriceps", "Rectus Abdominus", "Rhomboids", "Sartorius", "Serratus Anterior", "Soleus", "Splenius", "Sternocleidomastoid", "Subscapularis", "Supraspinatus", "Tensor Fasciae Latae"];
+
+  var muscleGroups =
+    [{name: "Pectoralis", comp: ["Pectoralis Major Clavicular", "Pectoralis Major Sternal","Serratus Anterior"]},{name: "Deltoid", comp: ["Anterior Deltiod", "Lateral Deltoid", "Posterior Deltoid"]},{name: "Trapezius", comp:["Lower Trapezius", "Middle Trapezius", "Upper Trapezius","Levator Scapulae", "Rhomboids"]},{name: "Latissimus Dorsi", comp:["Teres Major", "Teres Minor","Latissimus Dorsi",]}, {name:"Abdominals", comp: ["Rectus Abdominus","Obliques","Transverse Abdominus"]}, {name: "Quadriceps", comp: ["Quadriceps","Popliteus"]},{name: 'Hamstrings', comp: ["Hamstrings",]},{name: "Glutes", comp:["Gluteus Maximus", "Gluteus Medius", "Gluteus Minimus"]}, {name: "Calves", comp:["Soleus","Gastronemius"]}, {name: "Forearms", comp:["Brachialis", "Brachioradialis","Wrist Extensors", "Wrist Flexors" ]},{name: "Triceps", comp:["Triceps"]},{name: "Biceps", comp: ["Biceps"]},{name: "Inner Thighs", comp:["Pectineous","Iliopsoas","Sartorius"]}];
 
 
   var equpment = [/*list equipment here*/];
@@ -145,7 +149,7 @@ $(document).ready(()=>{
   //make drowndown searchable
   $("#exerciseFormSelect").select2();
 
-  //when "add exercise is pressed"
+  //when "add exercise" is pressed
   $("#addExButton").off("click").on("click", function(){
     console.log(setArr);
     var exerciseSelect = document.getElementById("exerciseFormSelect").value;
@@ -234,7 +238,7 @@ $(document).ready(()=>{
       else if(currDay == "Friday"){
         for(var i = 0; i < friEx.length; i++){
           if(friEx[i][0]==exerciseDelete && friEx[i][1]!== "0"){
-            sfriEx.splice(i,1);
+            friEx.splice(i,1);
             i=friEx.length;
           }
         }
@@ -255,60 +259,145 @@ $(document).ready(()=>{
 
   //when visualize button is pressed
   $("#vizButton").off("click").on("click", function(){
-    //make an array to store sets per muscle
     setArr = [];
-    console.log('viz button pressed');
+    //generate turbo array setArr
+    if(document.getElementById("turboCheck").checked){
+      //make an array to store sets per muscle
 
-    addDay = function(dayArr){
-        //iterate through each exercise in dayArr: [ex, sets, reps]
-        for(var i = 0; i < dayArr.length; i++){
-          //grab array of muscles used in each exercise
-          var musUsed = exercises[(exercises.findIndex((sub)=>{return sub.name ==dayArr[i][0]}))].primary;
-          console.log(musUsed);
-          //iterate through each muscle used in exercise
-          for(var j = 0; j < musUsed.length; j++){
-            var found = false;
-            //check through all muscles that already have sets
-            for(var k = 0; k < setArr.length; k++){
-              //if the muscle is already listed, include sets from current exercise
-              if(setArr[k].name == musUsed[j]){
-                found = true;
-                setArr[k].sets += Number.parseInt(dayArr[i][1]);
-                break;
+      console.log('viz button pressed');
+
+      addDay = function(dayArr){
+          //iterate through each exercise in dayArr: [ex, sets, reps]
+          for(var i = 0; i < dayArr.length; i++){
+            //grab array of muscles used in each exercise
+            var musUsed = exercises[(exercises.findIndex((sub)=>{return sub.name ==dayArr[i][0]}))].primary;
+            console.log(musUsed);
+            //iterate through each muscle used in exercise
+            for(var j = 0; j < musUsed.length; j++){
+              var found = false;
+              //check through all muscles that already have sets
+              for(var k = 0; k < setArr.length; k++){
+                //if the muscle is already listed, include sets from current exercise
+                if(setArr[k].name == musUsed[j]){
+                  found = true;
+                  setArr[k].sets += Number.parseInt(dayArr[i][1]);
+                  break;
+                }
+              }
+              //if the muscle is not listed, add it and associated sets
+              if(found == false){
+                setArr.push({name:musUsed[j], sets: Number.parseInt(dayArr[i][1]), sets2: 0})
               }
             }
-            //if the muscle is not listed, add it and associated sets
-            if(found == false){
-              setArr.push({name:musUsed[j], sets: Number.parseInt(dayArr[i][1]), sets2: 0})
+
+            //grab secondary muscles and repeat process for sets2
+            var musUsed = exercises[(exercises.findIndex((sub)=>{return sub.name ==dayArr[i][0]}))].secondary;
+            for(var j = 0; j < musUsed.length; j++){
+              var found = false;
+              for(var k = 0; k < setArr.length; k++){
+                if(setArr[k].name == musUsed[j]){
+                  found = true;
+                  setArr[k].sets2 += Number.parseInt(dayArr[i][1]);
+                  break;
+                }
+              }
+              if(found == false){
+                setArr.push({name:musUsed[j], sets: 0, sets2: Number.parseInt(dayArr[i][1])})
+              }
             }
           }
+      }
+      addDay(sunEx);
+      addDay(monEx);
+      addDay(tueEx);
+      addDay(wedEx);
+      addDay(thuEx);
+      addDay(friEx);
+      addDay(satEx);
+    console.log(setArr);
+    console.log(friEx);
+    console.log(sunEx);
+    }
 
-          //grab secondary muscles and repeat process for sets2
-          var musUsed = exercises[(exercises.findIndex((sub)=>{return sub.name ==dayArr[i][0]}))].secondary;
-          for(var j = 0; j < musUsed.length; j++){
-            var found = false;
-            for(var k = 0; k < setArr.length; k++){
-              if(setArr[k].name == musUsed[j]){
-                found = true;
-                setArr[k].sets2 += Number.parseInt(dayArr[i][1]);
-                break;
+    //generate simplified array setArrGr
+    else{
+      //make an array to store sets per musclegroup
+      var setArrGr = [];
+      console.log('viz button simple pressed');
+
+      addDay = function(dayArr){
+          //iterate through each exercise in dayArr: [ex, sets, reps]
+          for(var i = 0; i < dayArr.length; i++){
+            //grab array of muscles used in each exercise
+            var musUsed = exercises[(exercises.findIndex((sub)=>{return sub.name ==dayArr[i][0]}))].primary;
+            console.log(musUsed);
+            //iterate through each muscle used in exercise
+            for(var j = 0; j < musUsed.length; j++){
+              var found = false;
+              //grab muscle muscle group
+              musUsedGr = muscleGroups[muscleGroups.findIndex((sub)=>{return sub.comp.includes(musUsed[j])})].name;
+              console.log(musUsedGr);
+              //check through all muscles that already have sets
+              for(var k = 0; k < setArrGr.length; k++){
+                //if the muscle group is already listed, include sets from current exercise
+                if(setArrGr[k].name == musUsedGr){
+                  found = true;
+                  setArrGr[k].sets += Number.parseInt(dayArr[i][1]);
+                  break;
+                }
+              }
+              //if the muscle group is not listed, add it and associated sets
+              if(found == false){
+                setArrGr.push({name:musUsedGr, sets: Number.parseInt(dayArr[i][1]), sets2: 0})
               }
             }
-            if(found == false){
-              setArr.push({name:musUsed[j], sets: 0, sets2: Number.parseInt(dayArr[i][1])})
+
+            //grab secondary muscles and repeat process for sets2
+            var musUsed = exercises[(exercises.findIndex((sub)=>{return sub.name ==dayArr[i][0]}))].secondary;
+            console.log(musUsed);
+            //iterate through each muscle used in exercise
+            for(var j = 0; j < musUsed.length; j++){
+              var found = false;
+              //grab muscle muscle group
+              musUsedGr = muscleGroups[muscleGroups.findIndex((sub)=>{return sub.comp.includes(musUsed[j])})].name;
+              console.log(musUsedGr);
+              //check through all muscles that already have sets
+              for(var k = 0; k < setArrGr.length; k++){
+                //if the muscle group is already listed, include sets from current exercise
+                if(setArrGr[k].name == musUsedGr){
+                  found = true;
+                  setArrGr[k].sets2 += Number.parseInt(dayArr[i][1]);
+                  break;
+                }
+              }
+              //if the muscle group is not listed, add it and associated sets
+              if(found == false){
+                setArrGr.push({name:musUsedGr, sets: 0, sets2: Number.parseInt(dayArr[i][1])})
+              }
             }
           }
         }
+      addDay(sunEx);
+      addDay(monEx);
+      addDay(tueEx);
+      addDay(wedEx);
+      addDay(thuEx);
+      addDay(friEx);
+      addDay(satEx);
+      console.log(setArrGr);
     }
-    addDay(sunEx);
-    addDay(monEx);
-    addDay(tueEx);
-    addDay(wedEx);
-    addDay(thuEx);
-    addDay(satEx);
-  console.log(setArr);
 
+    //clear display table
+    $("#setsTable tbody").empty();
+    //generate display table
+    if(!(document.getElementById("turboCheck").checked)){
+      setArr = setArrGr;
+    }
+    for(var i = 0; i < setArr.length; i++){
+      $("#setsTable tbody").append('<tr><td>' + setArr[i].name + '</td>' + '<td>' + setArr[i].sets + '</td><td>' + setArr[i].sets2 + '</td></tr>'
+      )
+    }
   });
 
 
-});
+})
