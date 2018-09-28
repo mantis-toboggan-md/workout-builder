@@ -1,4 +1,5 @@
 $(document).ready(()=>{
+
   var exercises = [
       {
         name: "Deadlift",
@@ -127,7 +128,7 @@ $(document).ready(()=>{
     ["Adductors", "Biceps", "Brachialis", "Brachioradialis", "Anterior Deltiod", "Lateral Deltoid", "Posterior Deltoid", "Erector Spinae", "Gastronemius", "Gluteus Maximus", "Gluteus Medius", "Gluteus Minimus", "Gracilis", "Hamstrings", "Iliopsoas", "Infraspinatus", "Latissimus Dorsi", "Levator Scapulae", "Obliques", "Pectineous", "Pectoralis Major Clavicular", "Pectoralis Major Sternal", "Teres Major", "Teres Minor", "Tibialis Anterior", "Transverse Abdominus", "Lower Trapezius", "Middle Trapezius", "Upper Trapezius", "Triceps", "Wrist Extensors", "Wrist Flexors", "Popliteus", "Quadriceps", "Rectus Abdominus", "Rhomboids", "Sartorius", "Serratus Anterior", "Soleus", "Splenius", "Sternocleidomastoid", "Subscapularis", "Supraspinatus", "Tensor Fasciae Latae"];
 
   var muscleGroups =
-    [{name: "Pectoralis", comp: ["Pectoralis Major Clavicular", "Pectoralis Major Sternal","Serratus Anterior"]},{name: "Deltoid", comp: ["Anterior Deltiod", "Lateral Deltoid", "Posterior Deltoid"]},{name: "Trapezius", comp:["Lower Trapezius", "Middle Trapezius", "Upper Trapezius","Levator Scapulae", "Rhomboids"]},{name: "Latissimus Dorsi", comp:["Teres Major", "Teres Minor","Latissimus Dorsi",]}, {name:"Abdominals", comp: ["Rectus Abdominus","Obliques","Transverse Abdominus"]}, {name: "Quadriceps", comp: ["Quadriceps","Popliteus"]},{name: 'Hamstrings', comp: ["Hamstrings",]},{name: "Glutes", comp:["Gluteus Maximus", "Gluteus Medius", "Gluteus Minimus"]}, {name: "Calves", comp:["Soleus","Gastronemius"]}, {name: "Forearms", comp:["Brachialis", "Brachioradialis","Wrist Extensors", "Wrist Flexors" ]},{name: "Triceps", comp:["Triceps"]},{name: "Biceps", comp: ["Biceps"]},{name: "Inner Thighs", comp:["Pectineous","Iliopsoas","Sartorius"]}];
+    [{name: "Pectoralis", comp: ["Pectoralis Major Clavicular", "Pectoralis Major Sternal","Serratus Anterior"]},{name: "Deltoid", comp: ["Anterior Deltoid", "Lateral Deltoid", "Posterior Deltoid"]},{name: "Trapezius", comp:["Lower Trapezius", "Middle Trapezius", "Upper Trapezius","Levator Scapulae", "Rhomboids"]},{name: "Latissimus Dorsi", comp:["Teres Major", "Teres Minor","Latissimus Dorsi",]}, {name:"Abdominals", comp: ["Rectus Abdominus","Obliques","Transverse Abdominus"]}, {name: "Quadriceps", comp: ["Quadriceps","Popliteus"]},{name: 'Hamstrings', comp: ["Hamstrings",]},{name: "Glutes", comp:["Gluteus Maximus", "Gluteus Medius", "Gluteus Minimus"]}, {name: "Calves", comp:["Soleus","Gastronemius"]}, {name: "Forearms", comp:["Brachialis", "Brachioradialis","Wrist Extensors", "Wrist Flexors" ]},{name: "Triceps", comp:["Triceps"]},{name: "Biceps", comp: ["Biceps"]},{name: "Inner Thighs", comp:["Pectineous","Iliopsoas","Sartorius"]}];
 
 
   var equpment = [/*list equipment here*/];
@@ -142,6 +143,23 @@ $(document).ready(()=>{
 
   var setArr = [];
 
+  var validImages = ["assets\\images\\anteriorRedRectusAbdominus.png",
+  "assets\\images\\anteriorRedBrachioradialis.png",
+  "assets\\images\\anteriorRedPectoralisMajorSternal.png", "assets\\images\\anteriorRedTibialis.png",
+  "assets\\images\\anteriorRedUpperTrapezius.png",
+  "assets\\images\\anteriorRedSartorius.png",
+  "assets\\images\\anteriorRedQuadriceps.png",
+  "assets\\images\\anteriorRedAdductors.png",
+  "assets\\images\\anteriorRedAnteriorDeltoid.png",
+  "assets\\images\\anteriorRedBiceps.png",
+  "assets\\images\\anteriorRedBrachialis.png",
+  "assets\\images\\anteriorRedGastronemius.png",
+  "assets\\images\\anteriorRedLateralDeltoid.png",
+  "assets\\images\\anteriorLatissimusDorsi.png",
+  "assets\\images\\anteriorRedObliques.png",
+  "assets\\images\\anteriorRedPectoralisMajorClavicular.png",
+  "assets\\images\\anteriorRedSerratusAnterior.png",
+  "assets\\images\\anteriorRedTensorFaschiaeLatae.png"]
   //generate list of exercise names in dropdown
   for(var i = 0; i < exercises.length; i++){
     $("#exerciseFormSelect").append("<option>" + exercises[i].name + "</option>");
@@ -388,15 +406,39 @@ $(document).ready(()=>{
     }
 
     //clear display table
-    $("#setsTable tbody").empty();
+  //  $("#setsTable tbody").empty();
     //generate display table
     if(!(document.getElementById("turboCheck").checked)){
       setArr = setArrGr;
     }
-    for(var i = 0; i < setArr.length; i++){
-      $("#setsTable tbody").append('<tr><td>' + setArr[i].name + '</td>' + '<td>' + setArr[i].sets + '</td><td>' + setArr[i].sets2 + '</td></tr>'
-      )
+    // for(var i = 0; i < setArr.length; i++){
+    //   $("#setsTable tbody").append('<tr><td>' + setArr[i].name + '</td>' + '<td>' + setArr[i].sets + '</td><td>' + setArr[i].sets2 + '</td></tr>'
+    //   )
+    // }
+
+    //clear display
+  $("#imageHolder").empty();
+  $("#imageHolder").append('<img src = "assets\\images\\anteriorBlankGray1.png" class = "blankMus"></img>');
+  for(var m = 0; m < setArr.length; m++){
+    setArr[m].name = setArr[m].name.replace(/\s/g, '');
+    var imgSrc = 'assets\\images\\anteriorRed' + setArr[m].name + '.png'
+    var opac = 0.25;
+    if(setArr[m].sets > 15){
+      opac = 0.75;
     }
+    else if(setArr[m].sets > 5 && setArr[m].sets < 15){
+      opac = 0.5;
+    }
+    console.log(setArr[m].sets)
+      if(validImages.includes(imgSrc)){
+        $("#imageHolder").prepend(
+          '<img src = "assets\\images\\anteriorRed' + setArr[m].name + '.png" class="musOverlay" onerror = "function($(this).remove())" style = "opacity:' + opac + '; position: absolute;" clip-path ="url(#svgPath)" ></img>'
+          )
+        }
+      }
+    //  $(".musOverlay").css("position", "absolute")
+
+
   });
 
 

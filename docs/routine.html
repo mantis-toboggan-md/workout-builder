@@ -21,6 +21,20 @@
   <title>BBPlan</title>
 </head>
   <body>
+    <svg height="0" width="0">
+    <defs>
+      <linearGradient id="gradient-2">
+        <stop offset="0" stop-color="white" stop-opacity="0.25" />
+        <stop offset="1" stop-color="white" stop-opacity="1" />
+      </linearGradient>
+      <pattern id="pattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+        <circle cx="5" cy="5" r="5" fill="url(#gradient-2)" />
+      </pattern>
+      <mask id="pattern-mask" x="0" y="0" width="1" height="1" >
+        <rect x="0" y="0" width="220" height="220" fill="url(#pattern)"/>
+      </mask>
+    </defs>
+</svg>
     <div class = "container"><h1 >test title:routine</h1></div>
 
     <div class="fixed-bottom">weight: bf: dead: squat: bench:</div>
@@ -193,12 +207,36 @@
         <label class="form-check-label" for="rmCheck" id = "rmCheckLabel">Use 1RM</label>
         <input type="button" class="btn btn-primary" id = "addExButton" value = "Add Exercise"></input>
       </div>
-      <div class = "container" id = "vizCont">
+    </div>
+  </div>
+      <div class = "row" id = "vizRow">
         <input type="button" class="btn btn-primary" id = "vizButton" value = "Vizualize"></input>
         <label class="form-check-label" for="turboCheck" id = "turboCheckLabel">Turbo Mode</label>
         <input type="checkbox" class="form-check-input" id="turboCheck"></input>
 
-        <table class ="table" id = "setsTable"><tr><th>Muscle</th><th>Sets/Wk</th><th>Auxilary Sets/WK</th></tr></table>
+        <table class ="table table-striped" id = "setsTable"><tr><th>Muscle</th><th>Sets/Wk</th><th>Auxilary Sets/WK</th></tr></table>
+        <div class = "container" id = "imageHolder"><img src = "assets\images\anteriorRedWristFlexors.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedRectusAbdominus.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedBrachioradialis.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedPectoralisMajorSternal.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedTibialis.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedUpperTrapezius.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedSartorius.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedQuadriceps.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedAdductors.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedAnteriorDeltoid.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedBiceps.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedBrachialis.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedGastronemius.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedLateralDeltoid.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorLatissimusDorsi.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedObliques.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedPectoralisMajorClavicular.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedSerratusAnterior.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorRedTensorFaschiaeLatae.png" class="musOverlay"></img>
+          <img src = "assets\images\anteriorBlankGray1.png" class = "blankMus" ></img>
+
+        </div>
       </div>
     </div>
   </div>

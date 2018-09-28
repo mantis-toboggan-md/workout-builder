@@ -74,3 +74,21 @@ padding: 0;
   height: 280px;
   overflow:hidden;
 }
+
+
+.musOverlay{
+  position: absolute;
+  top: 651px;
+  opacity: 0;
+
+
+
+//  background-color: blue;
+//  filter: hue-rotate(90deg);
+  z-index: 1;
+  border: 2px solid red;
+}
+.blankMus{
+  position: absolute;
+  -webkit-clip-path: url(#pattern-mask);
+}

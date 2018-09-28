@@ -59,4 +59,15 @@
   height: 280px;
   overflow: hidden; }
 
+.musOverlay {
+  position: absolute;
+  top: 651px;
+  opacity: 0;
+  z-index: 1;
+  border: 2px solid red; }
+
+.blankMus {
+  position: absolute;
+  -webkit-clip-path: url(#pattern-mask); }
+
 /*# sourceMappingURL=main.css.map */
