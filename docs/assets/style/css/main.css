@@ -13,17 +13,16 @@
   padding: 0px; }
 
 #day-selector .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
-  background-color: gray; }
+  background-color: #c8c8c8; }
 
 #day-selector a {
-  border: 1px solid blue;
   float: left;
   text-align: center;
   height: 60px;
-  width: 100%; }
+  width: 100%;
+  border-radius: 0; }
 
 #day-content {
-  background-color: purple;
   margin: auto;
   height: 420px;
   padding: 0; }
@@ -46,16 +45,15 @@
   top: -8px; }
 
 #setsLabel, #repsLabel, #rmCheckLabel {
-  background-color: red;
   position: relative;
   top: -8px; }
 
 .form-group {
-  background-color: green;
-  padding: 5px; }
+  padding: 5px;
+  border: 1px solid red; }
 
 .tab-content {
-  background-color: gray;
+  background-color: #c8c8c8;
   height: 280px;
   overflow: hidden; }
 

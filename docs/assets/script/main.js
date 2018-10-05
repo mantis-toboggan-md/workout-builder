@@ -2,22 +2,10 @@ $(document).ready(()=>{
 
   var exercises = [
       {
-        name: "Deadlift",
-        primary: ["Hamstrings", "Gluteus Maximus"],
-        secondary: ["Quadriceps"],
-        equipment: ["Barbell"]
-      },
-      {
-        name: "Squat",
-        primary: ["Quads", "Glutes"],
-        secondary: ["Hamstrings"],
-        equipment: ["Barbell", "Rack"]
-      },
-      {
         name: "Bench Press",
         primary: ["Pectoralis Major Sternal"],
         secondary: ["Pectoralis Major Clavicular", "Anterior Deltiod", "Triceps"],
-        equipment: ["Barbell", "Flat Bench"]
+        equipment: ["Barbell", "Bench"]
       },
       {
         name: "",
@@ -111,6 +99,76 @@ $(document).ready(()=>{
         primary: ["Serratus Anterior"],
         secondary: ["Pectoralis Major Clavicular"],
         equipment:["Barbell", "Incline Bench"]
+      },{
+        name: "Push Crunch",
+        primary: ["Rectus Abdominus"],
+        secondary: ["Obliques"],
+        equipment:["Barbell", "Decline Bench"]
+      },{
+        name: "Push Sit-up",
+        primary: ["Rectus Abdominis"],
+        secondary: ["Iliopsoas", "Tensor Fasciae Latae", "Quadriceps", "Sartorius", "Obliques"],
+        equipment:["Barbell", "Decline Bench"]
+      },{
+        name: "Deadlift",
+        primary: ["Erector Spinae"],
+        secondary: ["Gluteus Maximus", "Adductor Magnus", "Quadriceps", "Hamstrings", "Soleus"],
+        equipment:["Barbell"]
+      },{
+        name: "Straight Leg Deadlift",
+        primary: ["Erector Spinae"],
+        secondary: ["Hamstrings", "Gluteus Maximus", "Adductor Magnus"],
+        equipment:["Barbell"]
+      },{
+        name: "Sumo Deadlift",
+        primary: ["Erector Spinae"],
+        secondary: ["Gluteus Maximus", "Adductor Magnus", "Quadriceps", "Soleus"],
+        equipment:["Barbell"]
+      },{
+        name: "Trap Bar Deadlift",
+        primary: ["Erector Spinae"],
+        secondary: ["GLuteus Maximus", "Adductor Magnus", "Quadriceps", "Soleus"],
+        equipment:["Barbell"]
+      },{
+        name: "Hip Thrust",
+        primary: ["Gluteus Maximus"],
+        secondary: ["Quadriceps"],
+        equipment:["Barbell", "Bench"]
+      },{
+        name: "Lunge",
+        primary: ["Gluteus Maximus"],
+        secondary: ["Quadriceps", "Adductor Magnus", "Soleus"],
+        equipment:[""]
+      },{
+        name: "Squat",
+        primary: ["Gluteus Maximus"],
+        secondary: ["Quadriceps", "Adductor Magnus", "Soleus"],
+        equipment:["Barbell", "Rack"]
+      },{
+        name: "Front Squat",
+        primary: ["Gluteus Maximus"],
+        secondary: ["Quadriceps", "Adductor Magnus", "Soleus"],
+        equipment:["Barbell", "Rack"]
+      },{
+        name: "Good Morning",
+        primary: ["Hamstrings"],
+        secondary: ["Gluteus Maximus", "Adductor Magnus"],
+        equipment:["Barbell", "Rack"]
+      },{
+        name: "Standing Leg Calf Raise",
+        primary: ["Gastrocnemius"],
+        secondary: ["Soleus"],
+        equipment:["Barbell", "Rack"]
+      },{
+        name: "Reverse Calf Raise",
+        primary: ["Tibialis Anterior"],
+        secondary: [""],
+        equipment:["Barbell", "Rack"]
+      },{
+        name: "",
+        primary: [""],
+        secondary: [""],
+        equipment:[""]
       },{
         name: "",
         primary: [""],
@@ -262,7 +320,7 @@ $(document).ready(()=>{
         }
       }
       else if(currDay == "Saturday"){
-        for(var i = 0; i < ssatEx.length; i++){
+        for(var i = 0; i < satEx.length; i++){
           if(satEx[i][0]==exerciseDelete && satEx[i][1]!== "0"){
             satEx.splice(i,1);
             i=satEx.length;
