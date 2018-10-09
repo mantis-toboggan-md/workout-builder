@@ -50,7 +50,7 @@
       </div>
       </div>
     </nav>
-<div class = "container">
+<div class = "container-fluid">
   <div class = "row">
     <div class = "col-xs-2" id = "day-selector">
       <ul class="nav nav-stacked nav-pills" role="tablist" aria-orientation="vertical">
@@ -196,12 +196,15 @@
       </div>
     </div>
   </div>
-      <div class = "row" id = "vizRow">
+      <div class = "row" id = "vizControlRow">
         <input type="button" class="btn btn-primary" id = "vizButton" value = "Vizualize"></input>
+        <label for = "set2" id = "set2AmtLabel">Include secondary muscles at:</label>
+        <textarea class = "form-control" id = "set2Amt" rows = "1">0.75</textarea>
         <label class="form-check-label" for="turboCheck" id = "turboCheckLabel">Turbo Mode</label>
         <input type="checkbox" class="form-check-input" id="turboCheck"></input>
-
-        <table class ="table table-striped" id = "setsTable"><tr><th>Muscle</th><th>Sets/Wk</th><th>Auxilary Sets/WK</th></tr></table>
+      </div>
+        <!-- <table class ="table table-striped" id = "setsTable"><tr><th>Muscle</th><th>Sets/Wk</th><th>Auxilary Sets/WK</th></tr></table> -->
+        <div class = "row" id="vizRow">
         <div class = "container" id = "imageHolder"><img src = "assets\images\anteriorRedWristFlexors.png" class="musOverlay"></img>
           <img src = "assets\images\anteriorRedRectusAbdominus.png" class="musOverlay"></img>
           <img src = "assets\images\anteriorRedBrachioradialis.png" class="musOverlay"></img>
@@ -224,6 +227,7 @@
           <img src = "assets\images\anteriorBlankGray1.png" class = "blankMus" ></img>
 
         </div>
+      </div>
       </div>
     </div>
   </div>

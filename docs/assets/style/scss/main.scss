@@ -1,6 +1,6 @@
 
-$colorActiveTab: rgba(200,200,200,1);
-$colorInactiveTab: black;
+$colorActiveTab: rgba(220,220,220,1);
+$colorInactiveTab: gray;
 
 #topNavBar{
 margin-bottom: 2px;
@@ -49,18 +49,20 @@ padding: 0;
   column-fill:auto;
 }
 
-#setsText, #repsText, {
+#setsText, #repsText, #set2Amt{
  display: inline;
-  width:30px;
+  width:50px;
   height: 30px;
   resize:none;
   overflow:hidden;
+  padding: 0px;
+  text-align: center;
 }
 #rmCheck{
   position:relative;
   top: -8px;
 }
-#setsLabel, #repsLabel, #rmCheckLabel{
+#setsLabel, #repsLabel, #rmCheckLabel, #set2AmtLabel{
 //  background-color: red;
   position: relative;
   top:-8px;
@@ -80,7 +82,7 @@ padding: 0;
 
 .musOverlay{
   position: absolute;
-  top: 651px;
+  top: 604px;
   opacity: 0;
 
 

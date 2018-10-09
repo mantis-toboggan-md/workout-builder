@@ -8,12 +8,12 @@
   text-align: center; }
 
 #day-selector {
-  background-color: black;
+  background-color: gray;
   max-width: 50px;
   padding: 0px; }
 
 #day-selector .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
-  background-color: #c8c8c8; }
+  background-color: gainsboro; }
 
 #day-selector a {
   float: left;
@@ -33,18 +33,20 @@
   column-count: 2;
   column-fill: auto; }
 
-#setsText, #repsText {
+#setsText, #repsText, #set2Amt {
   display: inline;
-  width: 30px;
+  width: 50px;
   height: 30px;
   resize: none;
-  overflow: hidden; }
+  overflow: hidden;
+  padding: 0px;
+  text-align: center; }
 
 #rmCheck {
   position: relative;
   top: -8px; }
 
-#setsLabel, #repsLabel, #rmCheckLabel {
+#setsLabel, #repsLabel, #rmCheckLabel, #set2AmtLabel {
   position: relative;
   top: -8px; }
 
@@ -53,13 +55,13 @@
   border: 1px solid red; }
 
 .tab-content {
-  background-color: #c8c8c8;
+  background-color: gainsboro;
   height: 280px;
   overflow: hidden; }
 
 .musOverlay {
   position: absolute;
-  top: 651px;
+  top: 604px;
   opacity: 0;
   z-index: 1;
   border: 2px solid red; }
