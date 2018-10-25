@@ -199,25 +199,25 @@ $(document).ready(()=>{
   var friEx = friEx || [];
   var satEx = satEx || [];
 
-  var setArr = [];
+  //var setArr = [];
 
   var validImages = ["assets\\images\\anteriorRedRectusAbdominus.png",
-  "assets\\images\\anteriorRedBrachioradialis.png",
-  "assets\\images\\anteriorRedPectoralisMajorSternal.png", "assets\\images\\anteriorRedTibialis.png",
-  "assets\\images\\anteriorRedUpperTrapezius.png",
-  "assets\\images\\anteriorRedSartorius.png",
-  "assets\\images\\anteriorRedQuadriceps.png",
-  "assets\\images\\anteriorRedAdductors.png",
-  "assets\\images\\anteriorRedAnteriorDeltoid.png",
-  "assets\\images\\anteriorRedBiceps.png",
-  "assets\\images\\anteriorRedBrachialis.png",
-  "assets\\images\\anteriorRedGastronemius.png",
-  "assets\\images\\anteriorRedLateralDeltoid.png",
-  "assets\\images\\anteriorLatissimusDorsi.png",
-  "assets\\images\\anteriorRedObliques.png",
-  "assets\\images\\anteriorRedPectoralisMajorClavicular.png",
-  "assets\\images\\anteriorRedSerratusAnterior.png",
-  "assets\\images\\anteriorRedTensorFaschiaeLatae.png"]
+    "assets\\images\\anteriorRedBrachioradialis.png",
+    "assets\\images\\anteriorRedPectoralisMajorSternal.png", "assets\\images\\anteriorRedTibialis.png",
+    "assets\\images\\anteriorRedUpperTrapezius.png",
+    "assets\\images\\anteriorRedSartorius.png",
+    "assets\\images\\anteriorRedQuadriceps.png",
+    "assets\\images\\anteriorRedAdductors.png",
+    "assets\\images\\anteriorRedAnteriorDeltoid.png",
+    "assets\\images\\anteriorRedBiceps.png",
+    "assets\\images\\anteriorRedBrachialis.png",
+    "assets\\images\\anteriorRedGastronemius.png",
+    "assets\\images\\anteriorRedLateralDeltoid.png",
+    "assets\\images\\anteriorLatissimusDorsi.png",
+    "assets\\images\\anteriorRedObliques.png",
+    "assets\\images\\anteriorRedPectoralisMajorClavicular.png",
+    "assets\\images\\anteriorRedSerratusAnterior.png",
+    "assets\\images\\anteriorRedTensorFaschiaeLatae.png"]
   //generate list of exercise names in dropdown
   for(var i = 0; i < exercises.length; i++){
     $("#exerciseFormSelect").append("<option>" + exercises[i].name + "</option>");
@@ -227,13 +227,11 @@ $(document).ready(()=>{
 
   //when "add exercise" is pressed
   $("#addExButton").off("click").on("click", function(){
-    console.log(setArr);
     var exerciseSelect = document.getElementById("exerciseFormSelect").value;
     var sets = document.getElementById("setsText").value;
     var reps = document.getElementById("repsText").value;
     //check which day is active
     var currDay =   $(".tab-pane.active").attr("id");
-    console.log(currDay);
     //add exercise, sets, reps to that day's list
     $(".tab-pane.active .table").append(
       "<tr><td><input type='button' class='btn btn-danger' value = 'x'></input>" + exerciseSelect + "</td>" + "<td>" + sets + "</td>" + "<td>" + reps + "</td></tr>");
@@ -262,8 +260,6 @@ $(document).ready(()=>{
         satEx.push([exerciseSelect,sets,reps]);
       }
 
-    console.log("add button pressed")
-    console.log(typeof exerciseSelect);
 
     // when delete button pressed
     $(".btn-danger").off("click").on("click", function() {
@@ -273,7 +269,7 @@ $(document).ready(()=>{
       //find exercise in array of day's exercises
       if(currDay == "Sunday"){
         for(var i = 0; i < sunEx.length; i++){
-          if(sunEx[i][0]==exerciseDelete && sunEx[i][1]!== "0"){
+          if(sunEx[i][0]==exerciseDelete){
             sunEx.splice(i,1);
             i=sunEx.length;
           }
@@ -281,7 +277,7 @@ $(document).ready(()=>{
       }
       else if(currDay == "Monday"){
         for(var i = 0; i < monEx.length; i++){
-          if(monEx[i][0]==exerciseDelete && monEx[i][1]!== "0"){
+          if(monEx[i][0]==exerciseDelete){
             monEx.splice(i,1);
             i=monEx.length;
           }
@@ -289,7 +285,7 @@ $(document).ready(()=>{
       }
       else if(currDay == "Tuesday"){
         for(var i = 0; i < tueEx.length; i++){
-          if(tueEx[i][0]==exerciseDelete && tueEx[i][1]!== "0"){
+          if(tueEx[i][0]==exerciseDelete){
             tueEx.splice(i,1);wed
             i=tueEx.length;
           }
@@ -297,7 +293,7 @@ $(document).ready(()=>{
       }
       else if(currDay == "Wednesday"){
         for(var i = 0; i < wedEx.length; i++){
-          if(wedEx[i][0]==exerciseDelete && wedEx[i][1]!== "0"){
+          if(wedEx[i][0]==exerciseDelete){
             wedEx.splice(i,1);
             i=wedEx.length;
           }
@@ -305,7 +301,7 @@ $(document).ready(()=>{
       }
       else if(currDay == "Thursday"){
         for(var i = 0; i < thuEx.length; i++){
-          if(thuEx[i][0]==exerciseDelete && thuEx[i][1]!== "0"){
+          if(thuEx[i][0]==exerciseDelete){
             thuEx.splice(i,1);
             i=thuEx.length;
           }
@@ -313,7 +309,7 @@ $(document).ready(()=>{
       }
       else if(currDay == "Friday"){
         for(var i = 0; i < friEx.length; i++){
-          if(friEx[i][0]==exerciseDelete && friEx[i][1]!== "0"){
+          if(friEx[i][0]==exerciseDelete){
             friEx.splice(i,1);
             i=friEx.length;
           }
@@ -321,7 +317,7 @@ $(document).ready(()=>{
       }
       else if(currDay == "Saturday"){
         for(var i = 0; i < satEx.length; i++){
-          if(satEx[i][0]==exerciseDelete && satEx[i][1]!== "0"){
+          if(satEx[i][0]==exerciseDelete){
             satEx.splice(i,1);
             i=satEx.length;
           }
@@ -335,187 +331,199 @@ $(document).ready(()=>{
 
   //when visualize button is pressed
   $("#vizButton").off("click").on("click", function(){
-    setArr = [];
-    //generate turbo array setArr
-    if(document.getElementById("turboCheck").checked){
-      //make an array to store sets per muscle
-
-      console.log('viz button pressed');
-
-      addDay = function(dayArr){
-          //iterate through each exercise in dayArr: [ex, sets, reps]
-          for(var i = 0; i < dayArr.length; i++){
-            //grab array of muscles used in each exercise
-            var musUsed = exercises[(exercises.findIndex((sub)=>{return sub.name ==dayArr[i][0]}))].primary;
-            console.log(musUsed);
-            //iterate through each muscle used in exercise
-            for(var j = 0; j < musUsed.length; j++){
-              var found = false;
-              //check through all muscles that already have sets
-              for(var k = 0; k < setArr.length; k++){
-                //if the muscle is already listed, include sets from current exercise
-                if(setArr[k].name == musUsed[j]){
-                  found = true;
-                  setArr[k].sets += Number.parseInt(dayArr[i][1]);
-                  break;
-                }
-              }
-              //if the muscle is not listed, add it and associated sets
-              if(found == false){
-                setArr.push({name:musUsed[j], sets: Number.parseInt(dayArr[i][1]), sets2: 0})
-              }
-            }
-
-            //grab secondary muscles and repeat process for sets2
-            var musUsed = exercises[(exercises.findIndex((sub)=>{return sub.name ==dayArr[i][0]}))].secondary;
-            for(var j = 0; j < musUsed.length; j++){
-              var found = false;
-              for(var k = 0; k < setArr.length; k++){
-                if(setArr[k].name == musUsed[j]){
-                  found = true;
-                  setArr[k].sets2 += Number.parseInt(dayArr[i][1]);
-                  break;
-                }
-              }
-              if(found == false){
-                setArr.push({name:musUsed[j], sets: 0, sets2: Number.parseInt(dayArr[i][1])})
-              }
-            }
-          }
-      }
-      addDay(sunEx);
-      addDay(monEx);
-      addDay(tueEx);
-      addDay(wedEx);
-      addDay(thuEx);
-      addDay(friEx);
-      addDay(satEx);
-    console.log(setArr);
-    console.log(friEx);
-    console.log(sunEx);
-    }
-
-    //generate simplified array setArrGr
-    else{
-      //make an array to store sets per musclegroup
-      var setArrGr = [];
-      console.log('viz button simple pressed');
-
-      addDay = function(dayArr){
-          //iterate through each exercise in dayArr: [ex, sets, reps]
-          for(var i = 0; i < dayArr.length; i++){
-            //grab array of muscles used in each exercise
-            var musUsed = exercises[(exercises.findIndex((sub)=>{return sub.name ==dayArr[i][0]}))].primary;
-            console.log(musUsed);
-            //iterate through each muscle used in exercise
-            for(var j = 0; j < musUsed.length; j++){
-              var found = false;
-              //grab muscle muscle group
-              musUsedGr = muscleGroups[muscleGroups.findIndex((sub)=>{return sub.comp.includes(musUsed[j])})].name;
-              console.log(musUsedGr);
-              //check through all muscles that already have sets
-              for(var k = 0; k < setArrGr.length; k++){
-                //if the muscle group is already listed, include sets from current exercise
-                if(setArrGr[k].name == musUsedGr){
-                  found = true;
-                  setArrGr[k].sets += Number.parseInt(dayArr[i][1]);
-                  break;
-                }
-              }
-              //if the muscle group is not listed, add it and associated sets
-              if(found == false){
-                setArrGr.push({name:musUsedGr, sets: Number.parseInt(dayArr[i][1]), sets2: 0})
-              }
-            }
-
-            //grab secondary muscles and repeat process for sets2
-            var musUsed = exercises[(exercises.findIndex((sub)=>{return sub.name ==dayArr[i][0]}))].secondary;
-            console.log(musUsed);
-            //iterate through each muscle used in exercise
-            for(var j = 0; j < musUsed.length; j++){
-              var found = false;
-              //grab muscle muscle group
-              musUsedGr = muscleGroups[muscleGroups.findIndex((sub)=>{return sub.comp.includes(musUsed[j])})].name;
-              console.log(musUsedGr);
-              //check through all muscles that already have sets
-              for(var k = 0; k < setArrGr.length; k++){
-                //if the muscle group is already listed, include sets from current exercise
-                if(setArrGr[k].name == musUsedGr){
-                  found = true;
-                  setArrGr[k].sets2 += Number.parseInt(dayArr[i][1]);
-                  break;
-                }
-              }
-              //if the muscle group is not listed, add it and associated sets
-              if(found == false){
-                setArrGr.push({name:musUsedGr, sets: 0, sets2: Number.parseInt(dayArr[i][1])})
-              }
-            }
-          }
-        }
-      addDay(sunEx);
-      addDay(monEx);
-      addDay(tueEx);
-      addDay(wedEx);
-      addDay(thuEx);
-      addDay(friEx);
-      addDay(satEx);
-      console.log(setArrGr);
-    }
-
-    //clear display table
-    //  $("#setsTable tbody").empty();
-    //generate display table
-    // for(var i = 0; i < setArr.length; i++){
-    //   $("#setsTable tbody").append('<tr><td>' + setArr[i].name + '</td>' + '<td>' + setArr[i].sets + '</td><td>' + setArr[i].sets2 + '</td></tr>'
-    //   )
-    // }
-
-//switch between turbo and basic mode:
-    if(!(document.getElementById("turboCheck").checked)){
-      setArr = setArrGr;
-    }
-
 
     //clear display
   $("#imageHolder").empty();
   //add blank anterior diagram
   $("#imageHolder").append('<img src = "assets\\images\\anteriorBlankGray1.png" class = "blankMus"></img>');
-  //iterate through each muscle in setArr
-  for(var m = 0; m < setArr.length; m++){
-    //add secondary muscle use
-    if(setArr[m].sets2 > 0){
-    var set2Multi = document.getElementById("set2Amt").value
-    setArr[m].sets += setArr[m].sets2 * set2Multi;
-    }
-    //get rid of spaces in muscle name
-    setArr[m].name = setArr[m].name.replace(/\s/g, '');
-    //grab image address from muscle name
-    var imgSrc = 'assets\\images\\anteriorRed' + setArr[m].name + '.png'
-    console.log(imgSrc);
-    //set low opacity
-    var opac = 0.25;
-    //if high rep range, change opacity to high
-    if(setArr[m].sets >= 15){
-      opac = 0.75;
-    }
-    //if med rep range, change opacity to medium
-    else if(setArr[m].sets > 5 && setArr[m].sets < 15){
-      opac = 0.5;
-    }
-    console.log(setArr[m].name)
-    //if image for muscle in setArr is present
-      if(validImages.includes(imgSrc)){
-        //add image to html
-        $("#imageHolder").prepend(
-          '<img src = "assets\\images\\anteriorRed' + setArr[m].name + '.png" class="musOverlay" onerror = "function($(this).remove())" style = "opacity:' + opac + '; position: absolute;"</img>'
-          )
+
+  //get analysis type
+  var anType = $('input[name=analysisType]:checked').val();
+
+
+  if(anType == "Volume"){
+      var setArr = [];
+      //generate turbo array setArr
+      if(document.getElementById("turboCheck").checked){
+        //make an array to store sets per muscle
+
+
+        addDay = function(dayArr){
+            //iterate through each exercise in dayArr: [ex, sets, reps]
+            for(var i = 0; i < dayArr.length; i++){
+              //grab array of muscles used in each exercise
+              var musUsed = exercises[(exercises.findIndex((sub)=>{return sub.name ==dayArr[i][0]}))].primary;
+              //iterate through each muscle used in exercise
+              for(var j = 0; j < musUsed.length; j++){
+                var found = false;
+                //check through all muscles that already have sets
+                for(var k = 0; k < setArr.length; k++){
+                  //if the muscle is already listed, include sets from current exercise
+                  if(setArr[k].name == musUsed[j]){
+                    found = true;
+                    setArr[k].sets += Number.parseInt(dayArr[i][1]);
+                    break;
+                  }
+                }
+                //if the muscle is not listed, add it and associated sets
+                if(found == false){
+                  setArr.push({name:musUsed[j], sets: Number.parseInt(dayArr[i][1]), sets2: 0})
+                }
+              }
+
+              //grab secondary muscles and repeat process for sets2
+              var musUsed = exercises[(exercises.findIndex((sub)=>{return sub.name ==dayArr[i][0]}))].secondary;
+              for(var j = 0; j < musUsed.length; j++){
+                var found = false;
+                for(var k = 0; k < setArr.length; k++){
+                  if(setArr[k].name == musUsed[j]){
+                    found = true;
+                    setArr[k].sets2 += Number.parseInt(dayArr[i][1]);
+                    break;
+                  }
+                }
+                if(found == false){
+                  setArr.push({name:musUsed[j], sets: 0, sets2: Number.parseInt(dayArr[i][1])})
+                }
+              }
+            }
         }
+        addDay(sunEx);
+        console.log(sunEx);
+        addDay(monEx);
+        addDay(tueEx);
+        addDay(wedEx);
+        addDay(thuEx);
+        addDay(friEx);
+        addDay(satEx);
+      console.log(setArr);
+
       }
 
+      //generate simplified array setArrGr
+      else{
+        //make an array to store sets per musclegroup
+        var setArrGr = [];
+
+        addDay = function(dayArr){
+            //iterate through each exercise in dayArr: [ex, sets, reps]
+            for(var i = 0; i < dayArr.length; i++){
+              //grab array of muscles used in each exercise
+              var musUsed = exercises[(exercises.findIndex((sub)=>{return sub.name ==dayArr[i][0]}))].primary;
+              console.log(musUsed);
+              //iterate through each muscle used in exercise
+              for(var j = 0; j < musUsed.length; j++){
+                var found = false;
+                //grab muscle muscle group
+                musUsedGr = muscleGroups[muscleGroups.findIndex((sub)=>{return sub.comp.includes(musUsed[j])})].name;
+                console.log(musUsedGr);
+                //check through all muscles that already have sets
+                for(var k = 0; k < setArrGr.length; k++){
+                  //if the muscle group is already listed, include sets from current exercise
+                  if(setArrGr[k].name == musUsedGr){
+                    found = true;
+                    setArrGr[k].sets += Number.parseInt(dayArr[i][1]);
+                    break;
+                  }
+                }
+                //if the muscle group is not listed, add it and associated sets
+                if(found == false){
+                  setArrGr.push({name:musUsedGr, sets: Number.parseInt(dayArr[i][1]), sets2: 0})
+                }
+              }
+
+              //grab secondary muscles and repeat process for sets2
+              var musUsed = exercises[(exercises.findIndex((sub)=>{return sub.name ==dayArr[i][0]}))].secondary;
+              console.log(musUsed);
+              //iterate through each muscle used in exercise
+              for(var j = 0; j < musUsed.length; j++){
+                var found = false;
+                //grab muscle muscle group
+                musUsedGr = muscleGroups[muscleGroups.findIndex((sub)=>{return sub.comp.includes(musUsed[j])})].name;
+                console.log(musUsedGr);
+                //check through all muscles that already have sets
+                for(var k = 0; k < setArrGr.length; k++){
+                  //if the muscle group is already listed, include sets from current exercise
+                  if(setArrGr[k].name == musUsedGr){
+                    found = true;
+                    setArrGr[k].sets2 += Number.parseInt(dayArr[i][1]);
+                    break;
+                  }
+                }
+                //if the muscle group is not listed, add it and associated sets
+                if(found == false){
+                  setArrGr.push({name:musUsedGr, sets: 0, sets2: Number.parseInt(dayArr[i][1])})
+                }
+              }
+            }
+          }
+        addDay(sunEx);
+        addDay(monEx);
+        addDay(tueEx);
+        addDay(wedEx);
+        addDay(thuEx);
+        addDay(friEx);
+        addDay(satEx);
+      }
+
+      //clear display table
+      //  $("#setsTable tbody").empty();
+      //generate display table
+      // for(var i = 0; i < setArr.length; i++){
+      //   $("#setsTable tbody").append('<tr><td>' + setArr[i].name + '</td>' + '<td>' + setArr[i].sets + '</td><td>' + setArr[i].sets2 + '</td></tr>'
+      //   )
+      // }
+
+  //switch between turbo and basic mode:
+      if(!(document.getElementById("turboCheck").checked)){
+        setArr = setArrGr;
+      }
+
+    //iterate through each muscle in setArr
+    for(var m = 0; m < setArr.length; m++){
+      //add secondary muscle use
+      if(setArr[m].sets2 > 0){
+        var set2Multi = document.getElementById("set2Amt").value
+        setArr[m].sets += setArr[m].sets2 * set2Multi;
+      }
+      //get rid of spaces in muscle name
+      setArr[m].name = setArr[m].name.replace(/\s/g, '');
+      //grab image address from muscle name
+      var imgSrc = 'assets\\images\\anteriorRed' + setArr[m].name + '.png'
+      console.log(imgSrc);
+      //set low opacity
+      var opac = 0.25;
+      //if high rep range, change opacity to high
+      if(setArr[m].sets >= 15){
+        opac = 0.75;
+      }
+      //if med rep range, change opacity to medium
+      else if(setArr[m].sets > 5 && setArr[m].sets < 15){
+        opac = 0.5;
+      }
+      console.log(setArr[m].name)
+      //if image for muscle in setArr is present
+        if(validImages.includes(imgSrc)){
+          //add image to html
+          $("#imageHolder").prepend(
+            '<img src = "assets\\images\\anteriorRed' + setArr[m].name + '.png" class="musOverlay" onerror = "function($(this).remove())" style = "opacity:' + opac + '; position: absolute;"</img>'
+            )
+          }
+        }
+
+
+
+    }
+
+    else if (anType == "Frequency"){
+
+
+
+    }
 
 
   });
 
 
-})
+}
+)

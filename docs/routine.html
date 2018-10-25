@@ -198,10 +198,13 @@
   </div>
       <div class = "row" id = "vizControlRow">
         <input type="button" class="btn btn-primary" id = "vizButton" value = "Vizualize"></input>
+        <label class="radio-inline"><input type="radio" name="analysisType" value = "Volume" checked>Volume</label>
+        <label class="radio-inline"><input type="radio" name="analysisType" value = "Frequency">Frequency</label>
+        <label class="radio-inline"><input type="radio" name="analysisType" value = "Intensity">Intensity</label>
         <label for = "set2" id = "set2AmtLabel">Include secondary muscles at:</label>
         <textarea class = "form-control" id = "set2Amt" rows = "1">0.75</textarea>
-        <label class="form-check-label" for="turboCheck" id = "turboCheckLabel">Turbo Mode</label>
-        <input type="checkbox" class="form-check-input" id="turboCheck"></input>
+        <label class="form-check-label active" for="turboCheck" id = "turboCheckLabel" checked>Turbo Mode</label>
+        <input type="checkbox" class="form-check-input" id="turboCheck" checked="checked"></input>
       </div>
         <!-- <table class ="table table-striped" id = "setsTable"><tr><th>Muscle</th><th>Sets/Wk</th><th>Auxilary Sets/WK</th></tr></table> -->
         <div class = "row" id="vizRow">
