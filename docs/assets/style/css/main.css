@@ -2,18 +2,18 @@
   margin-bottom: 2px; }
 
 .col-sm-8 {
-  border: 1px solid gray; }
+  border: 1px solid #bcbcbc; }
 
 .col-sm-8 h3 {
   text-align: center; }
 
 #day-selector {
-  background-color: gray;
+  background-color:#bcbcbc;
   max-width: 50px;
   padding: 0px; }
 
 #day-selector .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
-  background-color: gainsboro; }
+  background-color: #014241; }
 
 #day-selector a {
   float: left;
@@ -52,10 +52,10 @@
 
 .form-group {
   padding: 5px;
-  border: 1px solid red; }
+  border: 1px solid #f7f7f7; }
 
 .tab-content {
-  background-color: gainsboro;
+  background-color:   ;
   height: 280px;
   overflow: hidden; }
 
@@ -64,7 +64,7 @@
   top: 604px;
   opacity: 0;
   z-index: 1;
-  border: 2px solid red; }
+  border: 2px solid #f7f7f7; }
 
 .blankMus {
   position: absolute;
